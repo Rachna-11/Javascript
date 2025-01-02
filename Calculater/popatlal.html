@@ -19,20 +19,17 @@
     </div>
 
     <script>
-        // JavaScript to calculate Simple Interest and total payable amount
+     
         document.getElementById("calculateBtn").addEventListener("click", function () {
-            // Magic Number as Principal Amount
+           
             const principal = 50000; 
-            const rate = 7;  // Rate of interest
-            const time = 5;  // Randomly generate time between 1 and 5 years
-
-            // Simple Interest formula
+            const rate = 7;  
+            const time = 5;  
+         
             const interest = (principal * rate * time) / 100;
             
-            // Total payable amount
             const totalPayable = principal + interest;
 
-            // Display the result
             const fundDetailsHTML = `
                 <h2 class="text-2xl mb-4">Shaadi Fund Details:</h2>
                 <p>Principal Amount (Magic Number): ₹${principal}</p>
@@ -42,7 +39,6 @@
                 <p class="font-bold">Total Payable Amount: ₹${totalPayable.toFixed(2)}</p>
             `;
 
-            // Update the HTML with fund details
             document.getElementById("fundDetails").innerHTML = fundDetailsHTML;
         });
     </script>

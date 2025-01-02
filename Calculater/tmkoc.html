@@ -19,34 +19,28 @@
     </div>
 
     <script>
-        // JavaScript to calculate salary details
         document.getElementById("generateSalarySlipBtn").addEventListener("click", function () {
-            // Magic Number for Basic Salary
-            const basicSalary = 50000;  // ₹50,000
+            
+            const basicSalary = 50000; 
 
-            // Calculating HRA, DA, and Gross Salary
-            const hra = basicSalary * 0.20;  // 20% of Basic Salary
-            const da = basicSalary * 0.10;   // 10% of Basic Salary
+            const hra = basicSalary * 0.20; 
+            const da = basicSalary * 0.10;  
             const grossSalary = basicSalary + hra + da;
 
-            // Calculating Tax (5% of Gross Salary)
             const tax = grossSalary * 0.05;
 
-            // Calculating Net Salary
             const netSalary = grossSalary - tax;
 
-            // Display the Salary Slip
             const salarySlipHTML = `
                 <h2 class="text-2xl mb-4">Salary Details:</h2>
                 <p>Basic Salary: ₹${basicSalary}</p>
-                <p>HRA (20%): ₹${hra.toFixed(2)}</p>
-                <p>DA (10%): ₹${da.toFixed(2)}</p>
-                <p>Gross Salary: ₹${grossSalary.toFixed(2)}</p>
-                <p>Tax Deduction (5% of Gross Salary): ₹${tax.toFixed(2)}</p>
-                <p class="font-bold">Net Salary: ₹${netSalary.toFixed(2)}</p>
+                <p>HRA (20%): ₹${hra}</p>
+                <p>DA (10%): ₹${da}</p>
+                <p>Gross Salary: ₹${grossSalary}</p>
+                <p>Tax Deduction (5% of Gross Salary): ₹${tax}</p>
+                <p class="font-bold">Net Salary: ₹${netSalary}</p>
             `;
 
-            // Update the HTML with salary slip
             document.getElementById("salarySlip").innerHTML = salarySlipHTML;
         });
     </script>

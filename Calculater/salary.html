@@ -26,7 +26,7 @@
     <script>
         // Grocery Bill Calculation
         document.getElementById("generateBillBtn").addEventListener("click", function () {
-            // Generate random prices for 5 items (between 50 to 500)
+          
             const items = [
                 { name: "Garba Dress", price: (1500) },
                 { name: "Dandiya Sticks", price: (500) },
@@ -35,107 +35,88 @@
                 { name: "Gujarati Handbag", price: (1000) }
             ];
 
-            // Calculate total cost
             let totalCost = items.reduce((sum, item) => sum + parseFloat(item.price), 0);
             
-            // Calculate GST (5%)
             const gst = totalCost * 0.05;
             const finalTotal = totalCost + gst;
 
-            // Display the shopping list
             let shoppingListHTML = `<h2 class="text-2xl mb-4">Shopping List:</h2><ul class="list-disc text-left pl-5">`;
             items.forEach(item => {
                 shoppingListHTML += `<li>${item.name}: ₹${item.price}</li>`;
             });
             shoppingListHTML += `</ul>`;
 
-            // Display the final bill
             const finalBillHTML = `
-                <p>Total Cost: ₹${totalCost.toFixed(2)}</p>
-                <p>GST (5%): ₹${gst.toFixed(2)}</p>
-                <p class="font-bold">Final Total: ₹${finalTotal.toFixed(2)}</p>
+                <p>Total Cost: ₹${totalCost}</p>
+                <p>GST (5%): ₹${gst}</p>
+                <p class="font-bold">Final Total: ₹${finalTotal}</p>
             `;
 
-            // Display the personalized message based on the grocery bill
             let personalMessage = "";
             if (finalTotal > 1000) {
                 personalMessage = "Dayaben ki Garba Shopping Successful! 💃";
             }
 
-            // Update the HTML with the shopping list, final bill, and personal message
             document.getElementById("shoppingList").innerHTML = shoppingListHTML;
             document.getElementById("finalBill").innerHTML = finalBillHTML;
             document.getElementById("personalMessage").innerHTML = personalMessage;
         });
 
-        // Shaadi Fund Calculation
         document.getElementById("calculateShaadiFundBtn").addEventListener("click", function () {
-            // Magic Number for Principal Amount
-            const principal = 50000;  // ₹50,000
-            const rate = 7;  // Rate of interest
-            const time = Math.floor(Math.random() * 5) + 1;  // Randomly generate time between 1 and 5 years
+          
+            const principal = 50000;  
+            const rate = 7;  
+            const time = Math.floor(Math.random() * 5) + 1;  
 
-            // Simple Interest formula
             const interest = (principal * rate * time) / 100;
             
-            // Total payable amount
             const totalPayable = principal + interest;
 
-            // Display the result
             const fundDetailsHTML = `
                 <h2 class="text-2xl mb-4">Shaadi Fund Details:</h2>
                 <p>Principal Amount (Magic Number): ₹${principal}</p>
                 <p>Rate of Interest: ${rate}%</p>
                 <p>Time: ${time} years</p>
-                <p>Simple Interest: ₹${interest.toFixed(2)}</p>
-                <p class="font-bold">Total Payable Amount: ₹${totalPayable.toFixed(2)}</p>
+                <p>Simple Interest: ₹${interest}</p>
+                <p class="font-bold">Total Payable Amount: ₹${totalPayable}</p>
             `;
 
-            // Display the personalized message based on the shaadi fund
             let personalMessage = "";
             if (totalPayable > 50000) {
                 personalMessage = "Shaadi fix kar lo, Popatlal! 💍";
             }
 
-            // Update the HTML with Shaadi fund details and personal message
             document.getElementById("fundDetails").innerHTML = fundDetailsHTML;
             document.getElementById("personalMessage").innerHTML = personalMessage;
         });
 
-        // Salary Slip Calculation
         document.getElementById("generateSalarySlipBtn").addEventListener("click", function () {
-            // Magic Number for Basic Salary
-            const basicSalary = 50000;  // ₹50,000
+   
+            const basicSalary = 50000; 
 
-            // Calculating HRA, DA, and Gross Salary
-            const hra = basicSalary * 0.20;  // 20% of Basic Salary
-            const da = basicSalary * 0.10;   // 10% of Basic Salary
+            const hra = basicSalary * 0.20;  
+            const da = basicSalary * 0.10;   
             const grossSalary = basicSalary + hra + da;
 
-            // Calculating Tax (5% of Gross Salary)
             const tax = grossSalary * 0.05;
-
-            // Calculating Net Salary
+           
             const netSalary = grossSalary - tax;
 
-            // Display the Salary Slip
             const salarySlipHTML = `
                 <h2 class="text-2xl mb-4">Salary Details:</h2>
                 <p>Basic Salary: ₹${basicSalary}</p>
-                <p>HRA (20%): ₹${hra.toFixed(2)}</p>
-                <p>DA (10%): ₹${da.toFixed(2)}</p>
-                <p>Gross Salary: ₹${grossSalary.toFixed(2)}</p>
-                <p>Tax Deduction (5% of Gross Salary): ₹${tax.toFixed(2)}</p>
-                <p class="font-bold">Net Salary: ₹${netSalary.toFixed(2)}</p>
+                <p>HRA (20%): ₹${hra}</p>
+                <p>DA (10%): ₹${da}</p>
+                <p>Gross Salary: ₹${grossSalary}</p>
+                <p>Tax Deduction (5% of Gross Salary): ₹${tax}</p>
+                <p class="font-bold">Net Salary: ₹${netSalary}</p>
             `;
 
-            // Display the personalized message based on the net salary
             let personalMessage = "";
             if (netSalary > 50000) {
                 personalMessage = "Taarak Mehta ka Balance Perfect Hai! 😎";
             }
 
-            // Update the HTML with salary slip details and personal message
             document.getElementById("salarySlip").innerHTML = salarySlipHTML;
             document.getElementById("personalMessage").innerHTML = personalMessage;
         });
