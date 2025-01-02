@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhide Sir's Grading System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<body class="bg-[black] font-sans text-gray-800 ">
+
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-white p-8 border border-purple-900 rounded-lg  shadow-2xl shadow-white w-full max-w-lg text-center">
+            <h1 class="text-3xl font-bold mb-4">Bhide Sir Ke Students Ka Result!</h1>
+            <p class="mb-4">Enter the student's marks to get the grade:</p>
+            
+            <input type="number" id="marksInput" placeholder="Enter Marks" class="p-2 mb-4 border border-gray-300 rounded-lg w-full" min="0" max="100">
+            
+            <button id="checkGradeBtn" class="bg-blue-500 text-white p-2 rounded-lg w-full hover:bg-blue-700 transition">Check Grade</button>
+            
+            <div id="result" class="mt-4 text-xl"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("checkGradeBtn").addEventListener("click", function () {
+            const marks = parseInt(document.getElementById("marksInput").value);
+            const resultDiv = document.getElementById("result");
+
+            if (isNaN(marks) || marks < 0 || marks > 100) {
+                resultDiv.innerHTML = "Please enter valid marks between 0 and 100.";
+                resultDiv.classList.add("text-red-500");
+                resultDiv.classList.remove("text-green-500");
+                return;
+            }
+
+            let gradeMessage;
+            if (marks >= 90) {
+                gradeMessage = "A1 - Topper of the Class";
+            } else if (marks >= 75) {
+                gradeMessage = "A2 - Good Effort";
+            } else if (marks >= 50) {
+                gradeMessage = "B - Need Improvement";
+            } else {
+                gradeMessage = "Fail - Padho Beta Padho";
+            }
+
+            resultDiv.innerHTML = `Grade: ${gradeMessage}`;
+            if (marks < 50) {
+                resultDiv.classList.add("text-red-500");
+                resultDiv.classList.remove("text-green-500");
+            } else {
+                resultDiv.classList.add("text-green-500");
+                resultDiv.classList.remove("text-red-500");
+            }
+        });
+    </script>
+</body>
+</html>
