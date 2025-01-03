@@ -139,32 +139,36 @@ console.log("----------------------------------------------")
 console.log("Function to handle the Robo-Shop Assistant logic \n")
 function roboShopAssistant() {
 
-    let budget = Number(prompt("Enter your budget:"));
-
-    // Get the items and their prices as a string
-    let itemsInput = prompt("Enter items with their prices (e.g., item1-100, item2-200) : \n");
-
-    // Split the input string into items and calculate the total price
-
-    let items = itemsInput.split(",").map(item => 
+    const budget = 50000;
+    console.log("Budget: ", budget + "\n");
+    
+    console.log("Shopping List: ");
+    let Dress = 15000;
+    let Bags = 3500;
+    let Perfumes = 3000;
+    let Shoes = 4500;
+    let Watch = 2000;
+    
+    console.log("Goggles: ",Dress);
+    console.log("Bags: ", Bags);
+    console.log("Perfumes : ", Perfumes);
+    console.log(" Shoes: ", Shoes);
+    console.log("Watch: ",Watch + "\n");
+    
+    const total = Dress + Bags + Perfumes + Shoes + Watch; // total expenses
+    
+    console.log("Total Price: ", total);
+    
+    if (budget >= total)
     {
-        let [name, price] = item.split("-");
-        return Number(price);
-    });
-
-    // Calculate the total price of all items
-    let totalPrice = items.reduce((sum, price) => sum + price);
-
-    // Check if the total price is within the budget
-    if (totalPrice <= budget) 
+        console.log("Shopping Successful!");    
+    }
+    else
     {
-        console.log("Shopping Successful!");
-    } 
-    else 
-    {
-        console.log("Budget insufficient. Suggestions:");
-        console.log("- Buy fewer items.");
-        console.log("- Look for cheaper alternatives.");
+        if (budget < total) 
+        {
+            console.log("Buy Fewer Items or Cheaper Alternatives!");    
+        }
     }
 }
 
