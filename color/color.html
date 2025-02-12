@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Generator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(145deg, #d1d1d1, #ffffff);
+            box-shadow: 5px 5px 15px #b0b0b0, -5px -5px 15px #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: linear-gradient(145deg, #ffffff, #e0e0e0);
+        }
+    </style>
+</head>
+<body>
+
+    <button id="click">Change Background</button>
+
+    <script>
+        function generateRandomcolor() {
+            let letters = "0123456789ABCDEF";
+            let newColor = "#";
+
+            for (let i = 0; i < 6; i++) {
+                newColor += letters[Math.floor(Math.random() * 16)];
+            }
+
+            return newColor;
+        }
+
+        document.getElementById("click").addEventListener("click", function () {
+            let color = generateRandomcolor();
+            document.body.style.background = `linear-gradient(145deg, ${color}, #FF8DA1)`;
+        });
+    </script>
+
+</body>
+</html>

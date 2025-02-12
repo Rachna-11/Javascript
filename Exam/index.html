@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+        .ToDoList {
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4a5568;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .icon-btn {
+            cursor: pointer;
+            font-size: 22px;
+            margin-left: 10px;
+        }
+        .icon-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="bg-[#8F4DF7] flex justify-center items-center h-screen">
+
+    <div class="ToDoList w-[40%] min-h-[400px] bg-white p-5">
+        <h1 class="flex justify-center items-center text-[30px] font-semibold font-serif">
+            ToDo List <i class="ri-pencil-ruler-line ml-[10px]"></i>
+        </h1>
+
+        <div class="flex mt-4">
+            <input type="text" id="todo-input" placeholder="Add your item..." class="flex-grow px-3 py-2 border border-gray-400 rounded-md">
+            <button id="add-btn" class="ml-2 text-[40px] text-blue-500"><i class="ri-add-circle-fill"></i></button>
+        </div>
+
+        <div id="todo-container" class="mt-4 space-y-2"></div>
+    </div>
+
+    <script>
+        document.getElementById("add-btn").addEventListener("click", function() {
+            let input = document.getElementById("todo-input").value.trim();
+            let container = document.getElementById("todo-container");
+
+            if (input) {
+                let newItem = document.createElement("div");
+                newItem.className = "todo-item";
+                
+                let textSpan = document.createElement("span");
+                textSpan.textContent = input;
+
+                let editBtn = document.createElement("i");
+                editBtn.className = "ri-edit-2-line icon-btn text-yellow-300";
+                editBtn.addEventListener("click", function() {
+                    let newText = prompt("Edit your item:", textSpan.textContent);
+                    if (newText !== null) textSpan.textContent = newText.trim();
+                });
+
+                let deleteBtn = document.createElement("i");
+                deleteBtn.className = "ri-delete-bin-6-line icon-btn text-red-500";
+                deleteBtn.addEventListener("click", function() {
+                    container.removeChild(newItem);
+                });
+
+                let btnContainer = document.createElement("div");
+                btnContainer.appendChild(editBtn);
+                btnContainer.appendChild(deleteBtn);
+
+                newItem.appendChild(textSpan);
+                newItem.appendChild(btnContainer);
+                container.appendChild(newItem);
+
+                document.getElementById("todo-input").value = "";
+            }
+        });
+    </script>
+</body>
+</html>

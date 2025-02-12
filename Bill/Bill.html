@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-Mart Bill</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        margin-top: 130px;
+        background-color: rgba(233, 150, 122, 0.39);
+    }
+    .bill {
+        background-color: rgba(228, 135, 230, 0.206);
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .item {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        font-size: 18px;
+    }
+</style>
+<body>
+
+    <div class="bill w-[40%] h-auto border border-black p-4 shadow-lg">
+        <h1 class="font-serif text-[30px] font-thin text-center">D-Mart Bill</h1> 
+        <hr class="mb-2">
+
+        <div id="items" class="items"></div>
+
+        <hr>
+        <h2 class="text-right text-lg font-semibold mt-2" id="total"></h2>
+    </div>
+
+    <script>
+        
+        let billItems = [
+            { name: "Pie", price: 180, date: "11 Aug 2024" },
+            { name: "Milk", price: 50, date: "11 Aug 2024" },
+            { name: "Bread", price: 40, date: "11 Aug 2024" },
+            { name: "Butter", price: 100, date: "11 Aug 2024" },
+            { name: "Eggs", price: 80, date: "11 Aug 2024" },
+            { name: "Cheese", price: 120, date: "11 Aug 2024" },
+            { name: "Juice", price: 90, date: "11 Aug 2024" },
+            { name: "Cookies", price: 150, date: "11 Aug 2024" },
+            { name: "Soap", price: 70, date: "11 Aug 2024" },
+            { name: "Shampoo", price: 250, date: "11 Aug 2024" }
+        ];
+
+        let itemsDiv = document.getElementById("items");
+        let totalAmount = 0;
+
+        billItems.forEach(item => {
+            let itemDiv = document.createElement("div");
+            itemDiv.classList.add("item");
+            itemDiv.innerHTML = `<span>${item.name}</span> <span>₹${item.price}</span>`;
+            itemsDiv.appendChild(itemDiv);
+            totalAmount += item.price;
+        });
+
+        document.getElementById("total").innerText = `Total: ₹${totalAmount}`;
+    </script>
+
+</body>
+</html>

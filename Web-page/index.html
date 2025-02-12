@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CeramicShop</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<style>
+    .background
+    {
+        background-blend-mode: soft-light;
+    }
+</style>
+<body>
+
+    <div class="main bg-[#025048] h-[700px]">
+        <div class="navbar w-100 h-[70px]  flex  justify-evenly  items-center text-white pl-[20px] pr-[50px]">
+            <div class="nav1 w-[13%]">
+                <h1 class="font-serif text-[30px]">CeramicShop</h1>
+            </div>
+            <div class="nav1  w-[30%] uppercase font-mono flex justify-around text-[16px]  ">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Shop</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="nav1  w-[20] pr-[30px] text-[20px]">
+                <i class="ri-shopping-cart-2-fill"></i>
+            </div>
+        </div>
+
+        <div class="header h-[600px] flex mt-[30px] ">
+            <div class="header_1 w-[50%] text-white">
+                <div class="box w-[50%]  ml-[200px]  h-[400px] mt-[100px] ">
+                    <h6 class="text-[20px] font-serif">Welcome to Ceramic Shop</h6>
+                    <h1 class="text-[40px] font-semibold font-serif mt-[20px]">Elevate Your <br> Space with  <br> Ceramic Elegance.</h1>
+                    <h4 class="text-[20px] mt-[10px]">Starting from just $149.00</h4>
+                    <button class="border p-[17px] mt-[20px] bg-transparent hover:bg-white hover:text-[#025048] hover:transition">SHOP NOW</button>
+                </div>
+            </div>
+            <div class="header_2 w-[50%] flex">
+                <div class="relative  w-[100%] ">   
+                    <div class="absolute ml-[130px]  w-[56%] h-[650px] ">
+                      <img
+                        src="Assets/hero-01.jpg"
+                        alt="Hand holding a ceramic plant pot"
+                        class="w-[150%] h-[650px]  mt-[10px]"
+                      />
+                    </div>
+                    <div class="absolute top-28  ">
+                      <img
+                        src="Assets/hero-02.jpg"
+                        alt="White ceramic bowls"
+                        class="w-[100%] mt-[30px] h-[350px] "
+                      />
+                    </div>
+                  </div>
+                </div>
+        </div>
+    </div>
+   
+    <div class="about h-[300px]  mt-[140px] pl-[130px] text-[#025048] ">
+        <h1 class="text-[20px] font-serif">About Ceramic Shop</h1>
+        <p class="text-[46px] font-semibold font-serif mt-[25px]">The versatility of ceramics is what makes them <br> truly remarkable, with their presence in various <br> forms such as stoneware and porcelain.</p>
+    </div>
+
+      <div class="blog ml-[150px] mr-[150px] h-[650px] b flex">
+            <div class="blog_1 w-[50%]">
+                <img src="Assets/about-01.jpg" class="h-[680px] w-[85%]">
+            </div>
+            <div class="blog_2 text-[#025048]  mt-[60px]">
+                 <img src="Assets/about-02.jpg">
+                 <h1 class="text-[23px] mt-[20px] font-semibold font-serif">Welcome to Ceramic Shop, where passion meet <br>craftsmanship to bring you a world of timeless <br> beauty and creativity.</h1>
+                 <p class="text-black mt-[15px] text-[17px]">Our journey is steeped in the art of ceramics, where each piece tells <br> a unique story. Get to know the heart and soul behind our store.</p>
+            <button class="border px-8 py-3 mt-[20px] border-[#025048]  hover:text-[white] hover:transition hover:bg-[#025048]">READ MORE</button>
+        </div>
+        </div>
+
+        <div class="Popular pl-[130px] mt-[140px] mr-[130px]">
+            <h1 class="font-serif text-[20px] text-[#025048] ">Most Popular</h1>
+            <p class="text-[40px] font-semibold mt-[20px] text-[#025048]  font-serif ">Discover the Latest Additions at Your Top <br> Choice Flower Shop</p>
+            <div class="cards w-[100%] h-[auto] mt-[30px] flex flex-wrap g ap-8 justify-center" id="card">
+       </div>
+              </div>
+
+              <div class="background bg-[url(Assets/cta-bg.jpg)] h-[400px] w-100 mt-[100px] items-center bg-[#2222225c] flex justify-center  ">
+
+                <div class="box w-[50%] h-[280px] bg-white text-center">
+                    <h1 class="text-[#025048] text-[35px] font-serif font-bold  mt-[25px]">Begin Your Ceramic Journey Explore <br> Our Stunning Collections</h1>
+                    <p class="text-[#025048] text-[22px] font-serif font-light mt-[10px] ">Starting from just $149.00</p>
+                    <button class="border py-3 px-4 mt-[20px] bg-transparent border-[#025048] hover:bg-[#025048] hover:text-white hover:transition">SHOP NOW</button>     
+                </div>
+              </div>
+        
+              <div class="Products Category​ w-[100%]  flex  h-[830px] pl-[130px] mt-[40px] bg-[#F1F4F1]">
+                <div class="product_1 w-[50%] text-[#025048] ">
+                  <h1 class="mt-[20px] text-[15px]">THE BEST OR CERMAICS</h1>
+                  <h1 class="text-[35px] font-bold font-serif">Our Products Category​</h1>
+                  <p class="">Explore our exquisite collection of ceramic treasures that elevate your spaces and celebrate the artistry of craftsmanship. From dinnerware to decor, each piece in our product range is a testament to quality, style, and the timeless beauty of ceramics.</p>
+                
+                   <div class="relative flex justify-center mt-[20px]">
+                      <div class="absolute">
+                        <img src="Assets/category-01.jpg" >
+                      </div>
+                      <div class="absolute top-[480px] pl-[30px] bg-white w-[70%] h-[80px]  text-[#025048] ">
+                        <h1 class="text-[25px] font-serif mt-[10px]">Stylish Ceramic Home Decor</h1>
+                        <h1 class="text-gray-500">Starting from just $99.00</h1>
+                      </div>
+                   </div>
+
+
+                </div>
+                <div class="product_1 w-[50%] mt-[190px]">
+                  <div class="relative flex justify-center">
+                    <div class="absolute">
+                      <img src="Assets/catagory.jpg" >
+                    </div>
+                    <div class="absolute top-[480px] pl-[30px] bg-white w-[70%] h-[80px]  text-[#025048] ">
+                      <h1 class="text-[25px] font-serif mt-[10px]">Trending Ceramic Dinnerware</h1>
+                      <h1 class="text-gray-500">Starting from just $299.00</h1>
+                    </div>
+                    </div>
+                 </div>
+                </div>
+              </div>
+
+
+              <div class="world w-100 h-[440px] bg-[#025048] mt-[100px] flex">
+                <div class="world1 w-[45%] h-[500px]">
+                    <img src="Assets/footer-cta.jpg" width="100%" class="h-[440px]">
+                </div>
+                <div class="world2 pt-[70px] text-white pl-[40px]">
+                    <h1 class="font-serif text-[40px] font-bold">Uncover the World of <br> Ceramic Artistry Start <br>
+                        Your Journey Here!</h1>
+                        <button class="border py-3 px-6 mt-[30px] bg-transparent border-white hover:bg-white  hover:text-[#025048] hover:transition">SHOP NOW</button>
+               
+                </div>
+              </div>
+
+              <div class="footer mt-[30px]">
+                <div class="navbar w-100 h-[70px]  flex  justify-evenly  items-center mt-[30px] pl-[20px] pr-[50px]">
+                  <div class="nav1 w-[13%]">
+                      <h1 class="font-serif text-[20px]">CeramicShop</h1>
+                  </div>
+                  <div class="nav1  w-[30%] uppercase flex justify-around text-[16px]  ">
+                      <a href="#">Home</a>
+                      <a href="#">About</a>
+                      <a href="#">Shop</a>
+                      <a href="#">Contact</a>
+                  </div>
+                  <div class="nav1  w-[12%] pr-[30px]  text-[20px] flex justify-evenly">
+                    <i class="ri-facebook-circle-fill"></i>
+                    <i class="ri-twitter-fill"></i>
+                    <i class="ri-instagram-fill"></i>
+                    <i class="ri-youtube-fill"></i>
+                  </div>
+              </div>
+              <hr class="mt-[30px]">
+              <h1 class="text-gray-500 pl-[180px] mt-[30px] ">Copyright © 2025</h1>
+              </div>
+</body>
+<script>
+
+    
+
+        function createCards() {
+        const cardsContainer = document.getElementById("card");
+        let cardsHTML = "";
+
+  const cardData = [
+    { image: "Assets/1.jpg", title: "Ceramic Cup", price: "$189" },
+    { image: "Assets/2.jpg", title: "Ceramic Planter", price: "$299" },
+    { image: "Assets/3.jpg", title: "Ceramic Plates", price: "$119" },
+    { image: "Assets/4.jpg", title: "Ceramic Plates and Bowls", price: "$209" },
+    { image: "Assets/5.jpg", title: "Ceramic Plates and Spoons", price: "$299" },
+    { image: "Assets/6.jpg", title: "Ceramic Vases and Planters", price: "$217" },
+    { image: "Assets/7.jpg", title: "Ceramic Bottles", price: "$249" },
+    { image: "Assets/8.jpg", title: "Ceramic Garden Pots", price: "$189" },
+    { image: "Assets/9.jpg", title: "Ceramic Drink Coasters", price: "$99" },
+    { image: "Assets/10.jpg", title: "Ceramic Water Pot", price: "$349" },
+    { image: "Assets/11.jpg", title: "Ceramic  Handmade Plate", price: "$42" },
+    { image: "Assets/12.jpg", title: "Ceramic  Candle Holder", price: "$70" },
+  ];
+
+  for (let i = 0; i < cardData.length; i++) {
+    cardsHTML += `
+      <div class="card w-[30%] mt-[20px] p-4x ml-[25px] rounded  bg-white">
+        <img src="${cardData[i].image}" class="card-image w-[100%]" alt="${cardData[i].title}">
+        <h6 class="card-title text-[25px] font-serif mt-4">${cardData[i].title}</h6>
+        <h1 class="mt-[10px] text-[17px] text-gray-700">${cardData[i].price}</h1>
+        <button class="border border-black px-10 py-3 mt-[10px] hover:bg-[#025048] hover:text-white hover:transition hover:border-none">
+          BUY NOW
+        </button>
+      </div>
+    `;
+  }
+
+  cardsContainer.innerHTML = cardsHTML;
+}
+
+createCards();
+
+
+</script>
+
+</html>
