@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background-color: black;
+    }
+    .counter {
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 300px;
+    }
+</style>
+<body>
+
+    <div class="counter">
+        <div class="count">
+            <h1>0</h1>
+        </div>
+        <div class="count">
+            <h1>0</h1>
+        </div>
+        <div class="count">
+            <h1>0</h1>
+        </div>
+    </div>
+
+</body>
+<script>
+    function counter() {
+        let counts = document.querySelectorAll(".count h1");
+
+        let targets = [25000, 40000, 60000];
+        let speed = 100; 
+
+        counts.forEach((element, index) => {
+            let count = 0;
+            let target = targets[index];
+
+            function updateCount() 
+            {
+                if (count < target) 
+                {
+                    count += Math.ceil(target / 100); 
+                    element.textContent = count.toLocaleString(); 
+                    setTimeout(updateCount, speed);
+                } 
+                else 
+                {
+                    element.textContent = target.toLocaleString();
+                }
+            }
+            updateCount();
+        });
+    }
+    counter();
+</script>
+</html>

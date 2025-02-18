@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(45deg, #FF6B6B, #c540ee); /* Vibrant gradient */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff; /* Light text for contrast */
+            overflow: hidden; /* Hide scrollbars */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            width: 95%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+        }
+
+        input, button {
+            width: calc(100% - 26px);
+            padding: 14px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent input */
+            color: #333;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input:focus {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background: #8E44AD; /* Purple button */
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #9B59B6;
+            transform: translateY(-2px);
+        }
+
+        #booklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .book-card {
+            background: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            color: #555;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-card h3 {
+            color: #83347e;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-card p {
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        .book-card strong {
+            color: #7D3C98;
+        }
+
+        /* Animated background circles */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(51, 69, 231, 0.1);
+            animation: animateCircles 15s linear infinite;
+        }
+
+        .bg-circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .bg-circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 30%;
+            left: 60%;
+            animation-delay: 2s;
+        }
+
+        .bg-circle:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            top: 70%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .bg-circle:nth-child(4) {
+            width: 150px;
+            height: 150px;
+            top: 80%;
+            left: 80%;
+            animation-delay: 6s;
+        }
+
+        .bg-circle:nth-child(5) {
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            left: 40%;
+            animation-delay: 8s;
+        }
+
+        @keyframes animateCircles {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100px) translateX(-50px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2><i class="fas fa-book"></i> My Library</h2>
+        <input type="text" id="title" placeholder="Book Title">
+        <input type="text" id="author" placeholder="Author Name">
+        <button onclick="addBook()"><i class="fas fa-plus"></i> Add Book</button>
+        <input type="text" id="search" placeholder="🔍 Search by Title or Author" onkeyup="searchBook()">
+        <div id="booklist"></div>
+    </div>
+
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+
+    <script>
+        let books = [];
+
+        function addBook() {
+            let title = document.getElementById('title').value;
+            let author = document.getElementById('author').value;
+
+            if (title && author) {
+                books.push({ title, author });
+                displayBooks();
+                document.getElementById('title').value = '';
+                document.getElementById('author').value = '';
+            }
+        }
+
+        function displayBooks() {
+            let booklist = document.getElementById("booklist");
+            booklist.innerHTML = '';
+
+            books.forEach((book, index) => {
+                let bookCard = `<div class='book-card'>
+                                    <h3>${book.title}</h3>
+                                    <p><strong>Author:</strong> ${book.author}</p>
+                                </div>`;
+                booklist.innerHTML += bookCard;
+            });
+        }
+
+        function searchBook() {
+            let search = document.getElementById('search').value.toLowerCase();
+
+            let filteredBooks = books.filter(book =>
+                book.title.toLowerCase().includes(search) ||
+                book.author.toLowerCase().includes(search)
+            );
+
+            let booklist = document.getElementById('booklist');
+            booklist.innerHTML = '';
+ 
+            filteredBooks.forEach((book, index) => {
+                let bookCard = `<div class='book-card'>
+                                    <h3>${book.title}</h3>
+                                    <p><strong>Author:</strong> ${book.author}</p>
+                                </div>`;
+                booklist.innerHTML += bookCard;
+            });
+        }
+    </script>
+</body>
+</html>
