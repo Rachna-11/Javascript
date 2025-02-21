@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative 3D UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }   
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .box {
+            background: rgba(255, 255, 255, 0.8);
+            width: 90%;
+            max-width: 500px;
+            height: 350px;
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        .box h1 {
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: #333;
+        }
+        .box p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 18px;
+        }
+        button {
+            padding: 12px 40px;
+            margin-top: 20px;
+            background-color: #ff5e62; /* Solid color for fallback */
+            background-image: linear-gradient(135deg, #ff9966, #ff5e62);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 94, 98, 0.6);
+        }
+        .show {
+            display: flex;
+        }
+        .hide {
+            display: none; 
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box" id="display">
+            <h1>Welcome!</h1>
+            <p>Experience a fresh, modern, and creative UI with vibrant colors and a smooth effect.</p>
+            <button id="btn" onclick="btn()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById("display");
+        let button = document.getElementById("btn");
+
+        window.onload = function () {
+            setTimeout(() => {
+                display.classList.add("show");
+                display.classList.remove("hide");
+            }, 2000);
+        };
+
+            setTimeout(() => {
+                display.classList.add("hide");
+            }, 6000);
+       
+
+      function btn(){
+        display.classList.add("hide");
+      }
+
+    </script>
+</body>
+</html>

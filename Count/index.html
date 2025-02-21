@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #218838;
+        }
+        #timer {
+            font-size: 2em;
+            margin: 20px;
+            font-weight: bold;
+        }
+        #quote {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #555;
+            padding: 10px;
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Countdown Timer</h1>
+        <input type="number" id="minutes" placeholder="Enter minutes" min="1">
+        <button onclick="Countdown()">Start</button>
+        <div id="timer">00:00</div>
+        <div id="quote"></div> 
+    </div>
+    
+    <script>
+        let quotes = [
+            "“The best way to get started is to quit talking and begin doing.” – Walt Disney",
+            "“Don't watch the clock; do what it does. Keep going.” – Sam Levenson",
+            "“Your time is limited, so don’t waste it living someone else’s life.” – Steve Jobs",
+            "“It does not matter how slowly you go as long as you do not stop.” – Confucius"
+        ];
+
+        function getRandomQuote() {
+            let randomIndex = Math.floor(Math.random() * quotes.length);
+            return quotes[randomIndex];
+        }
+
+        function Countdown() {
+            let min = document.getElementById("minutes");
+            let timerDisplay = document.getElementById("timer");
+            let quoteDisplay = document.getElementById("quote");
+
+            let time = min.value * 60;
+
+            quoteDisplay.style.display = "none"; 
+
+            let countdownTimer = setInterval(update, 1000);
+
+            function update() {
+                if (time <= 0) {
+                    clearInterval(countdownTimer);
+                    quoteDisplay.textContent = getRandomQuote();
+                    quoteDisplay.style.display = "block"; 
+                    return;
+                }
+
+                let minutes = Math.floor(time / 60);
+                let seconds = time % 60;
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                timerDisplay.textContent = `${minutes}:${seconds}`; 
+
+                time--;
+            }
+            update();
+        }
+    </script>
+</body>
+</html>
