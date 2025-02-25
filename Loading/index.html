@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            transition: 2s;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+            background-color: black;    
+            color: white;
+            align-items: center;
+            padding-inline: 30%;
+            gap: 20px;
+            transition: ease-in;
+            transition-duration: 3s;
+            display: none;
+            position: fixed;
+
+        }
+        .spinar{
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            top : 0px;
+            left : 0px;
+        }
+        .spinar .spin{
+            width: 100px;
+            height: 100px;
+            border-color: rgb(42, 189, 189);
+            border-radius: 50%;
+            border-style: dotted;
+            border-top-color: rgb(73, 252, 255);
+            border-right-color: rgb(216, 216, 203);
+            border-left-color: rgb(216, 216, 203);
+            border-bottom-color: rgb(216, 216, 203);
+            animation: spin 2s linear infinite;
+            flex-direction: column;
+            transition: 0.5s;
+        }
+            @keyframes spin {
+                0%  { transform: rotate(0deg)}  
+                100%  {  transform: rotate(360deg);}  
+            }
+    </style>
+</head>
+    
+<body>
+
+        <div class="spinar">
+            <div class="spin" id="spin">
+
+            </div>
+        </div>
+
+
+    <div class="main" id="main">
+        <h1>Hello</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat est laborum amet tempore nesciunt sint nisi
+            ad hic sapiente. Quasi aliquam, sed id a illo minima eaque libero! Perferendis, delectus.</p>
+    </div>
+
+</body>
+
+    <script>
+        window.onload = function(){
+                setTimeout(()=>{
+                    let spin = document.getElementById("spin")
+                    let main = document.getElementById("main")
+                    spin.style.opacity = "0"
+                    main.style.display = "block"
+                    main.style.marginBlock = "300px"
+                    main.style.transition = "10s"
+                    
+                    setTimeout(()=>{
+                        spin.style.display ="none"
+                    },2000)
+                },2000)
+        }
+    </script>
+
+</html>

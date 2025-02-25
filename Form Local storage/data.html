@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            width: 100px;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registered Users</h2>
+        <ul id="display"></ul>
+        <a href="index.html" class="back-button">Back</a>
+    </div>
+</body>
+<script>
+    let showData = document.getElementById("display");
+    let getData = localStorage.getItem("users");
+
+    if (getData) {
+        let users = JSON.parse(getData);
+        
+        users.forEach(user => {
+            let listItem = document.createElement("li");
+            listItem.innerHTML = `
+                <strong>Name:</strong> ${user.firstName} ${user.lastName} <br>
+                <strong>Age:</strong> ${user.age} <br>
+                <strong>Email:</strong> ${user.email} <br>
+                <strong>Phone:</strong> ${user.phone} <br>
+                <strong>Address:</strong> ${user.address} <br>
+                <hr>
+            `;
+            showData.appendChild(listItem);
+        });
+    } 
+</script>
+</html>
