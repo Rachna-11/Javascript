@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+</style>
+
+<body>
+    <!-- <div class="box"> -->
+        <img src="" id="Img">
+    <!-- </div> -->
+
+</body>
+<script>
+      let image = document.getElementById("Img")
+    // for (i = 1; i <= 10; i++) {
+        let img = document.getElementById("6ua")
+        fetch("https://api.thecatapi.com/v1/images/search")
+       
+            .then((r) => r.json())
+            .then((d) => {
+                let random = d.img
+                // console.log(img)
+                image.src=img
+            })
+
+          
+            let div = document.createElement("div")
+    // }
+</script>
+
+</html>
